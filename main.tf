@@ -25,7 +25,7 @@ data "template_file" "users" {
   template = file("${path.module}/templates/users.yml")
 
   vars = {
-    username = "research"
+    username = "sjdiego"
   }
 }
 
@@ -37,7 +37,7 @@ data "template_file" "ruby" {
   template = file("${path.module}/templates/ruby.sh")
 
   vars = {
-    username     = "research"
+    username     = "sjdiego"
     ruby_version = "3.0.3"
   }
 }
