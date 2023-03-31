@@ -1,0 +1,4 @@
+users:
+  - name: ${username}
+    groups: rvm
+    sudo: ALL=(ALL) NOPASSWD:ALL
