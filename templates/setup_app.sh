@@ -23,6 +23,7 @@ SYSTEMD_SERVICE
 
 sudo -i -u "${username}" git clone ${app_repo} ${app_path}
 sudo -i -u "${username}" /usr/share/rvm/wrappers/ruby-${ruby_version}/bundle install --gemfile=${app_path}/Gemfile --jobs=4
+sudo -i -u "${username}" bash -c "cd ${app_path} && /usr/share/rvm/wrappers/ruby-${ruby_version}/rails tailwindcss:install"
 
 systemctl daemon-reload
 systemctl enable puma.service

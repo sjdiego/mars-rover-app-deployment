@@ -107,15 +107,11 @@ data "cloudinit_config" "user_data" {
   }
 }
 
-resource "aws_key_pair" "deployer" {
-  key_name   = "deployer-key"
-  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC25KLIfR7EguyusGdBhnFuJ6FyOoR9mWgunPXTmVzMyCNdjsJQD2JtWdmdKivimarbLtnA7r4sPuj7L6BcfaXXPPwz4jUrjcfAnkdh/2GjYw+FapLnectKgUgUawXGU46HvUshDhGQS2OWicVxJ+e0Fupf4Z+C3d2cydIq5anUllIAxQzyx5HsEBYmOH30cj8opcJMKpIAQrryJFbbsZ5x8EHO1Znwlk5DnuujGpxblGxEvQdCoXANFzXuhpxjIrnQXmGTVn1Iz5ZTQpPwy2jcf6sUXA4Qav+jyVIxRDwFQbQ3qGMuLwb1aKuM1JOvTsLIuPFUKJ6SRzf/NTL1ShqPMwII3rVrupsxwtslqFcf4Q8Dqu6725kPY0/fGHBK01I8J3I3+VBd86TDx4Qo4/nGufLt65WZEF2iW+NEkOoOAS6g8rTNiTGPOBwoqKKe2JA2tEhL7O2PXm1fI++VVddT1Ztl0ttxqx4V3DPY4jx12pjibeSR0NM9ha/UN9xOaBJXIw5njW0HwAzeh16cwg2zJwq3p4COFqdDDZ0FlfWnT1vPEKyFBcYF0qx8tEoDP4N/YmAeK1om7za8SYH+VenTeWpu5gcxtqocTOwi5/L2rK00/aH9oy9KN/EKggrfGRdychRtg9C/10D4wI3a2LgGJ98wNjMyF1OgnNoqxvmv3Q=="
-}
-
 resource "aws_instance" "rails_mars_rover" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t3.micro"
-  key_name      = "deployer-key"
+  associate_public_ip_address = true
+  key_name      = "ec2-deploy"
 
   user_data = data.cloudinit_config.user_data.rendered
 

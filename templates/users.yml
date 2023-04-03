@@ -1,4 +1,8 @@
 users:
   - name: ${username}
-    groups: rvm
+    groups: users, admin, rvm
+    shell: /bin/bash
     sudo: ALL=(ALL) NOPASSWD:ALL
+    ssh_authorized_keys:
+      # ec2-deploy.pem
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCspJ1A0OR74IfcxFqq8E/mOreJkK0Q3YybvbZLGxxg5R7/YSw+kDhVOenYLaiOz9RuWmRDa0M1yvxCt5R4tetL9KWzukrrne7kBrAy5MHPtuJSOfWeZEG0epmu1wozNxuuu1AqRKfALe6qn2VNDC/Z34I2cnYYZZ896LOqDdM2dW7kF4TlEuozWCr7X4b6FPeLiRYhRpMP67BjgN8fvejHsHC3TvgGq0FndN3HxlpW1SUbDmLLZmLYvTjyXWKOi4a1eSHzbx7H8nsb/rH73akHKFu1BkIJd4up6xfOIDekM3nw8p5tE6OSS+qHOG+O004kpjNNYwiyQXzB/n2+a1vH
